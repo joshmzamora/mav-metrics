@@ -1,0 +1,9 @@
+player,team,age,position,minutes,bpm,usage_rate,social_followers,engagement_rate,posting_rate,google_trend,wiki_views,media_mentions,momentum_growth,endorsement_count,brand_fit,risk_score
+Player A,DAL,24,G,2100,4.2,25.1,1200000,0.045,3,48,125000,320,0.18,2,8,2
+Player B,DAL,21,F,1600,1.5,19.2,350000,0.062,5,31,78000,180,0.32,1,7,1
+Player C,OKC,26,G,2400,6.8,30.5,2100000,0.038,2,64,210000,520,0.12,4,9,2
+Player D,HOU,22,C,1900,2.9,21.7,600000,0.055,4,42,115000,260,0.27,1,8,1
+Player E,SAS,20,C,2300,7.5,28.4,4200000,0.041,3,91,480000,870,0.44,5,10,2
+Player F,MEM,25,G,1700,3.1,27.9,1800000,0.033,2,58,160000,450,-0.04,3,6,4
+Player G,ORL,23,F,2200,4.8,24.2,900000,0.052,4,49,140000,310,0.21,2,8,2
+Player H,IND,24,G,2350,5.9,26.3,1500000,0.047,5,55,170000,390,0.25,2,9,1
