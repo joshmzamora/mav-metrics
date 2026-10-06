@@ -1,0 +1,9 @@
+player,team,age,position,performance_score,marketability_score,momentum_score,expected_marketability,marketability_gap,primary_strength,primary_weakness,recommended_action
+Player E,SAS,20,C,100.0,100.0,100.0,95.5,4.5,Audience attention,High expectations risk,Pair national attention with controlled community/content story
+Player C,OKC,26,G,75.0,76.8,37.5,74.3,2.5,Performance credibility,Posting volume,Use playoff/performance clips to raise engagement quality
+Player H,IND,24,G,87.5,71.7,62.5,84.0,-12.3,Balanced growth,Lower raw reach,Increase short-form player-led content and sponsor-safe personality posts
+Player A,DAL,24,G,50.0,57.4,50.0,52.7,4.7,Local market fit,Mid-tier attention,Build Dallas-specific fan series and partner with local brands
+Player G,ORL,23,F,62.5,56.5,75.0,63.3,-6.8,Engagement quality,National attention,Push behind-the-scenes content to convert engagement into broader awareness
+Player F,MEM,25,G,37.5,50.7,0.0,41.0,9.7,Reach,Reputation/risk,Reduce risk narrative and focus content on reliability/community
+Player D,HOU,22,C,25.0,42.9,87.5,30.5,12.4,Momentum,Lower current reach,Move early while cost is low; content partnership around growth story
+Player B,DAL,21,F,0.0,32.1,25.0,8.7,23.4,Engagement rate,Low reach,Small creator-style content plan before major sponsor push
