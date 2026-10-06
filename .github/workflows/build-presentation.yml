@@ -1,0 +1,49 @@
+name: Build final presentation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/presentation_parts/**"
+      - "scripts/build_presentation.sh"
+      - "package.json"
+      - ".github/workflows/build-presentation.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build PowerPoint
+        run: npm run build:presentation
+
+      - name: Upload PowerPoint artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mav-Metrics-Final
+          path: presentation/Mav_Metrics_Final.pptx
+
+      - name: Commit generated PowerPoint
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add presentation/Mav_Metrics_Final.pptx package-lock.json
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git commit -m "Build final presentation [skip ci]"
+          git push
