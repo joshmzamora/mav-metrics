@@ -11,7 +11,8 @@ The goal is to create a public-data framework that helps teams, agents, players,
 - processed demo dataset
 - lightweight dashboard
 - methodology docs
-- presentation outline
+- real PowerPoint workflow
+- AI-generated logo prompt + asset plan
 - speaker script for 4 people
 - Q&A prep
 - executive summary
@@ -26,26 +27,14 @@ Marketability Gap = Actual Marketability - Expected Marketability
 
 A player with strong basketball performance but lower marketability than expected may be under-marketed. That is the useful business opportunity.
 
-## Project structure
-
-```text
-mav-metrics/
-├── data/
-│   ├── raw/
-│   └── processed/
-├── dashboard/
-├── docs/
-├── presentation/
-├── scripts/
-└── src/
-```
-
 ## Quick start
 
 ```bash
 pip install -r requirements.txt
 python scripts/build_model.py
 python scripts/export_figures.py
+python scripts/download_assets.py
+python scripts/build_powerpoint.py
 python -m http.server 8000
 ```
 
@@ -62,6 +51,17 @@ http://localhost:8000/dashboard/
 3. Run `python scripts/build_model.py`.
 4. Use `data/processed/player_scores.csv` in the dashboard and deck.
 5. Run `python scripts/export_figures.py` to export presentation charts.
+6. Run `python scripts/build_powerpoint.py` to create a starter PowerPoint.
+
+## Presentation materials
+
+- `presentation/deck.md` — slide-by-slide outline
+- `presentation/speaker_script.md` — divided across Joshua, Shresta, Veer, and Sejal
+- `presentation/qa_prep.md` — likely judge questions
+- `presentation/executive_summary.md` — one-page summary
+- `presentation/team_roles.md` — who owns what
+- `presentation/assets_sources.md` — visual/source plan for real images
+- `presentation/logo_prompt.md` — prompt used for the AI-generated Mav Metrics logo
 
 ## Scoring pillars
 
@@ -77,18 +77,10 @@ Marketability Score =
 
 All variables are converted to percentiles from 0 to 100. Large count variables use log scaling before percentile conversion.
 
-## Presentation materials
-
-- `presentation/deck.md` — slide-by-slide outline
-- `presentation/speaker_script.md` — divided across Joshua, Shresta, Veer, and Sejal
-- `presentation/qa_prep.md` — likely judge questions
-- `presentation/executive_summary.md` — one-page summary
-- `presentation/team_roles.md` — who owns what
-
 ## Next steps before submitting
 
 - Replace demo rows with real sourced NBA data.
-- Add citations and access dates to the deck.
+- Add citations and access dates to the final deck.
 - Validate against jersey sales, NBA digital views, or All-Star voting.
-- Turn `presentation/deck.md` into the final slide deck.
+- Polish the generated PowerPoint manually.
 - Keep the dashboard simple; it should support the presentation, not replace it.
