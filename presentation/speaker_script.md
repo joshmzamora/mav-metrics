@@ -1,50 +1,66 @@
 # Speaker Script
 
-## Joshua — Opening + Core Insight
+Use this as the starting script. Keep it natural and do not read word-for-word.
 
-**Slides 1-2**
+## Joshua — opening + core insight
 
-"Our project is called Mav Metrics. The basic question is simple: if you are a team, agent, or sponsor, how do you know which players are actually marketable and which players are being missed? We did not want to build a score that only rewards famous players. We wanted a framework that finds opportunity."
+### Slide 1 — Title
 
-"So our main idea is the marketability gap. Performance explains part of a player's commercial value, but not all of it. The interesting players are the ones where performance, attention, and brand value do not line up yet."
+"Our project is called Mav Metrics. We built a public-data framework for measuring NBA player marketability, momentum, and untapped brand value. The point is not just to find who is already famous. The point is to find commercial value before it becomes obvious."
 
-## Shresta — Market Research + Why It Matters
+### Slide 2 — Problem
 
-**Slides 3-4**
+"The question we started with was not 'who is famous?' It was: which players are commercially underpriced relative to their performance, attention, and momentum? That is more useful for a team like Dallas because it turns marketability into something actionable."
 
-"A common mistake is treating follower count as the whole story. Followers matter, but they do not tell us if fans are engaged, if attention is growing, if brands can use the player safely, or if the player has performance credibility."
+## Shresta — market research + data story
 
-"That is why our framework uses six pillars: performance, reach, attention, engagement, momentum, and brand fit. This lets us compare players from more than one angle."
+### Slide 3 — Public data
 
-## Veer — Model + Data
+"A common mistake is treating follower count as the whole story. Followers matter, but they do not tell us if fans are engaged, if attention is growing, or if a player has performance credibility. That is why the framework combines performance, reach, engagement, attention, and commercial proof."
 
-**Slides 5-7**
+### Slide 9 — Recommendations
 
-"The model is intentionally simple. Every variable becomes a percentile from 0 to 100. For large count variables like followers and pageviews, we use log scaling first so one superstar does not crush the entire dataset."
+"The business use is pretty direct. For team marketing, the model points to which players deserve more content support. For agents, it gives evidence for brand and contract conversations. For sponsors, it helps match players to campaigns based on fit and momentum, not just follower count."
 
-"The final marketability score uses weighted pillars: 25 percent performance, 20 percent reach, 20 percent attention, 15 percent engagement, 10 percent momentum, and 10 percent brand."
+## Veer — model + validation
 
-"Then we estimate expected marketability from performance. The difference between actual and expected marketability is the marketability gap. That gap is where we find under-marketed players or brand outperformers."
+### Slide 4 — Model outputs
 
-## Sejal — Results + Dashboard
+"The model has three outputs. Current marketability tells us who has commercial power now. Momentum tells us whose brand is growing fastest. The most important piece is marketability gap, which compares actual marketability to expected marketability based on basketball performance."
 
-**Slides 8-10**
+### Slide 6 — Validation
 
-"This dashboard is the simple tool version of our model. It lets us search players, sort by marketability, performance, momentum, or gap, and click into each player card."
+"A model like this needs external validation. So the plan is to build the score without using jersey sales as an input, then compare the output to official jersey-sales lists and NBA digital view leaders. We also test sensitivity by moving the weights and checking whether the core recommendations still hold."
 
-"The scatterplot is the fastest way to explain the results. The players in the high-performance but lower-marketability area are the most interesting for teams because they may have untapped commercial value."
+### Slide 10 — Limitations
 
-"For our real findings, we focused on players where the model produced a clear action, not just a high score. That means the output is not only a ranking. It tells us what to do next."
+"We are not claiming this gives the exact dollar value of a player. Public data is incomplete, and weights are always partly subjective. The strength is that the assumptions are visible, the model is reproducible, and the output is directionally useful."
 
-## Joshua — Recommendations + Close
+## Sejal — results + dashboard
 
-**Slides 11-12**
+### Slide 5 — Opportunity map
 
-"For teams, this can guide which players deserve more content support and sponsor packaging. For agents, it gives outside evidence for negotiation and brand strategy. For brands, it helps find rising players before the price catches up."
+"This map is the fastest way to understand the project. Performance is on one axis, marketability is on the other, and bubble size represents momentum. The most interesting players are not always the highest scores. They are the players whose commercial value has not caught up with their basketball value."
 
-"The biggest strength of Mav Metrics is that it is explainable and reusable. It does not replace human judgment, but it makes the next undervalued player easier to spot."
+### Slide 7 — Findings
 
-## Timing Goal
+"For the final version, we replace the demo values with real sourced data. The output should not just say a player scored 78 out of 100. It should explain the player's opportunity, their primary strength, their weakness, and the specific action a team or agent should take."
+
+### Slide 8 — Dashboard
+
+"The dashboard makes the framework reusable. A judge can search a player, compare outputs, and test weight changes live. It supports the presentation instead of replacing it."
+
+## Joshua — close
+
+### Slide 11 — Final takeaway
+
+"The takeaway is simple: basketball value creates the stage, but marketability decides who captures it. Mav Metrics helps Dallas find the players whose commercial value has not caught up yet."
+
+### Slide 12 — Backup
+
+"For Q&A, we split roles clearly: I can cover the story and business framing, Shresta covers market and brand logic, Veer covers model assumptions and validation, and Sejal covers results and the dashboard."
+
+## Timing goal
 
 - Joshua opening: 60-75 seconds
 - Shresta: 60-75 seconds
