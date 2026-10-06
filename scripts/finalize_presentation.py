@@ -121,12 +121,6 @@ notes={
 for idx,slide in enumerate(prs.slides,1):
     presenter,timing,say,extra=notes[idx]
     tf=slide.notes_slide.notes_text_frame; tf.clear()
-    tf.paragraphs[0].text=f'PRESENTER: {presenter}
-TIME: {timing}
-
-SAY:
-{say}
-
-{extra}'
+    tf.paragraphs[0].text='\\n'.join([f'PRESENTER: {presenter}', f'TIME: {timing}', '', 'SAY:', say, '', extra])
 
 prs.save(tmp); shutil.move(tmp,src); print(f'Finalized {src}')
