@@ -6,6 +6,8 @@ on:
     paths:
       - "scripts/presentation_parts/**"
       - "scripts/build_presentation.sh"
+      - "scripts/finalize_presentation.py"
+      - "requirements.txt"
       - "package.json"
       - ".github/workflows/build-presentation.yml"
 
@@ -24,11 +26,21 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          pip install -r requirements.txt
 
       - name: Build PowerPoint
         run: npm run build:presentation
+
+      - name: Final presentation QA pass
+        run: python scripts/finalize_presentation.py presentation/Mav_Metrics_Final.pptx
 
       - name: Upload PowerPoint artifact
         uses: actions/upload-artifact@v4
