@@ -25,7 +25,9 @@ The separate presentation docs were removed on purpose. The methodology, assumpt
 
 ## Benchmark data
 
-The current benchmark uses public sources:
+The current dashboard is a proof-of-concept benchmark built from selected public signals. The production workflow is designed to expand to the full player pool on a fixed collection date.
+
+Public sources include:
 
 - Official NBA/NBPA jersey-sales rankings
 - Official NBA social + digital view rankings
@@ -35,14 +37,16 @@ The current benchmark uses public sources:
 
 ```text
 Marketability Score =
-  35% Commercial Proof
-+ 30% Attention
-+ 20% Basketball Performance
-+ 15% Momentum
+  25% Basketball Performance
++ 20% Reach
++ 20% Attention
++ 15% Engagement
++ 10% Momentum
++ 10% Brand
 ```
 
 ```text
-Expected Marketability = Basketball Performance Score
+Expected Marketability = f(Basketball Performance)
 Marketability Gap = Marketability Score - Expected Marketability
 ```
 
