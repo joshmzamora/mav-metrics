@@ -9,9 +9,10 @@
 <body>
   <main class="app">
     <section class="hero">
-      <p class="eyebrow">Player Marketability Explorer</p>
+      <p class="eyebrow">Player Marketability Explorer · 2025-26 benchmark</p>
       <h1>Mav Metrics</h1>
-      <p class="lede">A simple public-data tool for comparing player performance, brand value, momentum, and marketability gap.</p>
+      <p class="lede">A transparent public-data tool for comparing basketball production, commercial demand, audience attention, momentum, and the gap between performance and marketability.</p>
+      <p class="source-note">Benchmark cohort uses official NBA social/digital view rankings, official NBA/NBPA jersey-sales rankings, and NBA player statistics.</p>
     </section>
 
     <section class="controls">
@@ -32,8 +33,13 @@
 
     <section class="grid">
       <div class="chart-card">
-        <h2>Performance vs. Marketability</h2>
-        <svg id="scatter" viewBox="0 0 700 420" role="img" aria-label="Scatterplot"></svg>
+        <div class="card-heading">
+          <div>
+            <h2>Performance vs. Marketability</h2>
+            <p>Negative gap = potential underexposure relative to basketball production.</p>
+          </div>
+        </div>
+        <svg id="scatter" viewBox="0 0 700 420" role="img" aria-label="Performance versus marketability scatterplot"></svg>
       </div>
       <aside class="player-card" id="detail">
         <h2>Select a player</h2>
@@ -57,6 +63,8 @@
         <tbody id="rows"></tbody>
       </table>
     </section>
+
+    <p class="footnote">Proof-of-concept benchmark, not an official Dallas Mavericks model. Scores are relative to the selected cohort and are intended for decision support.</p>
   </main>
   <script src="app.js"></script>
 </body>
