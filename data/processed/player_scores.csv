@@ -1,9 +1,9 @@
 player,team,age,position,performance_score,marketability_score,momentum_score,expected_marketability,marketability_gap,primary_strength,primary_weakness,recommended_action
-Player E,SAS,20,C,100.0,100.0,100.0,95.5,4.5,Audience attention,High expectations risk,Pair national attention with controlled community/content story
-Player C,OKC,26,G,75.0,76.8,37.5,74.3,2.5,Performance credibility,Posting volume,Use playoff/performance clips to raise engagement quality
-Player H,IND,24,G,87.5,71.7,62.5,84.0,-12.3,Balanced growth,Lower raw reach,Increase short-form player-led content and sponsor-safe personality posts
-Player A,DAL,24,G,50.0,57.4,50.0,52.7,4.7,Local market fit,Mid-tier attention,Build Dallas-specific fan series and partner with local brands
-Player G,ORL,23,F,62.5,56.5,75.0,63.3,-6.8,Engagement quality,National attention,Push behind-the-scenes content to convert engagement into broader awareness
-Player F,MEM,25,G,37.5,50.7,0.0,41.0,9.7,Reach,Reputation/risk,Reduce risk narrative and focus content on reliability/community
-Player D,HOU,22,C,25.0,42.9,87.5,30.5,12.4,Momentum,Lower current reach,Move early while cost is low; content partnership around growth story
-Player B,DAL,21,F,0.0,32.1,25.0,8.7,23.4,Engagement rate,Low reach,Small creator-style content plan before major sponsor push
+LeBron James,LAL,41,F,45.8,69.1,28.6,45.8,23.3,League-leading attention,Momentum cooling / veteran lifecycle,Monetize legacy moments; prioritize premium partnerships over volume
+Stephen Curry,GSW,38,G,37.5,65.6,14.3,37.5,28.1,Commercial proof,Digital momentum down YoY,Lean into signature-product storytelling and milestone content
+Luka Doncic,LAL,27,G,87.5,84.9,71.4,87.5,-2.6,Elite production + demand,Already highly priced,Focus on international campaigns and retention rather than discovery
+Victor Wembanyama,SAS,22,C,45.8,79.2,100.0,45.8,33.3,Fastest attention growth,Commercial demand still catching up to attention,Move early on global tech and youth partnerships
+Nikola Jokic,DEN,31,C,87.5,55.9,42.9,87.5,-31.6,Elite production,Commercial proof trails production,Best underexposure candidate; build authentic low-friction sponsor concepts
+Shai Gilgeous-Alexander,OKC,28,G,58.3,53.9,57.1,58.3,-4.4,Performance + positive momentum,Commercial proof below on-court tier,Package style and performance storytelling for premium lifestyle brands
+Anthony Edwards,MIN,25,G,45.8,54.4,85.7,45.8,8.5,High momentum,Attention rank trails jersey demand,Convert merchandise strength into owned-social engagement
+Cooper Flagg,DAL,19,F,41.7,38.2,50.0,41.7,-3.5,Rookie breakout,No prior-year baseline,Track quarterly and bundle the Dallas rookie story with sponsor-safe short-form content
