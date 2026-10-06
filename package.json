@@ -1,0 +1,12 @@
+{
+  "name": "mav-metrics",
+  "version": "1.0.0",
+  "private": true,
+  "description": "2026 Sports Analytics Case — Player Marketability Model",
+  "scripts": {
+    "build:presentation": "bash scripts/build_presentation.sh"
+  },
+  "dependencies": {
+    "pptxgenjs": "^3.12.0"
+  }
+}
