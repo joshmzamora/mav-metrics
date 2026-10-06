@@ -1,21 +1,8 @@
 # Mav Metrics
 
-A simple analytics project for the 2026 Sports Analytics Case: **Player Marketability Model**.
+Mav Metrics is a simple public-data NBA marketability project for the 2026 Sports Analytics Case.
 
-The goal is to create a public-data framework that helps teams, agents, players, and brands find NBA players with strong marketability, rising momentum, or untapped commercial value.
-
-## What is included
-
-- simple Python scoring model
-- public-data input template
-- processed demo dataset
-- lightweight dashboard
-- methodology docs
-- real PowerPoint workflow
-- AI-generated logo prompt + asset plan
-- speaker script for 4 people
-- Q&A prep
-- executive summary
+The goal is to help teams, agents, players, and brands identify NBA players with strong current marketability, rising momentum, or underpriced commercial upside.
 
 ## Core idea
 
@@ -27,13 +14,23 @@ Marketability Gap = Actual Marketability - Expected Marketability
 
 A player with strong basketball performance but lower marketability than expected may be under-marketed. That is the useful business opportunity.
 
+## What is included
+
+- Python scoring model
+- public-data input template
+- processed demo dataset
+- lightweight dashboard
+- PowerPoint build workflow
+- presentation deck outline
+- speaker notes and speaking flow inside the PowerPoint
+- Q&A prep and executive summary in the presentation folder
+
 ## Quick start
 
 ```bash
 pip install -r requirements.txt
 python scripts/build_model.py
 python scripts/export_figures.py
-python scripts/download_assets.py
 python scripts/build_powerpoint.py
 python -m http.server 8000
 ```
@@ -47,21 +44,10 @@ http://localhost:8000/dashboard/
 ## Data workflow
 
 1. Copy `data/raw/player_inputs_template.csv` to `data/raw/player_inputs.csv`.
-2. Replace placeholder rows with sourced public player data.
+2. Replace demo rows with sourced public player data.
 3. Run `python scripts/build_model.py`.
 4. Use `data/processed/player_scores.csv` in the dashboard and deck.
-5. Run `python scripts/export_figures.py` to export presentation charts.
-6. Run `python scripts/build_powerpoint.py` to create a starter PowerPoint.
-
-## Presentation materials
-
-- `presentation/deck.md` — slide-by-slide outline
-- `presentation/speaker_script.md` — divided across Joshua, Shresta, Veer, and Sejal
-- `presentation/qa_prep.md` — likely judge questions
-- `presentation/executive_summary.md` — one-page summary
-- `presentation/team_roles.md` — who owns what
-- `presentation/assets_sources.md` — visual/source plan for real images
-- `presentation/logo_prompt.md` — prompt used for the AI-generated Mav Metrics logo
+5. Run `python scripts/export_figures.py` for presentation charts.
 
 ## Scoring pillars
 
@@ -77,10 +63,14 @@ Marketability Score =
 
 All variables are converted to percentiles from 0 to 100. Large count variables use log scaling before percentile conversion.
 
+## Presentation focus
+
+The deck is the main deliverable. Speaker notes should hold the detailed methodology, assumptions, and talking points so the visible slides stay clean.
+
 ## Next steps before submitting
 
-- Replace demo rows with real sourced NBA data.
-- Add citations and access dates to the final deck.
+- Replace demo values with final sourced NBA data.
+- Pull official NBA/team/player imagery where usage is allowed.
 - Validate against jersey sales, NBA digital views, or All-Star voting.
-- Polish the generated PowerPoint manually.
-- Keep the dashboard simple; it should support the presentation, not replace it.
+- Practice the speaker notes so the presentation feels natural.
+- Keep the dashboard simple; it supports the presentation, not the other way around.
