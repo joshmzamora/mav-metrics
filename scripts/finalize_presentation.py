@@ -93,6 +93,15 @@ add_text(s,'Threshold is a policy choice—not something tuned after seeing the 
 add_pill(s,'ROBUST > PRECISE',9.03,5.72,1.70,C['teal'])
 footer(s,8,'Robustness rule proposed for model governance; threshold can be adjusted')
 
+# Make the dashboard slide read as a finished prototype, not unfinished work.
+for shape in prs.slides[8].shapes:
+    if shape.has_text_frame and (shape.text or '').startswith('Product mockup built from the Mav Metrics workflow'):
+        p=shape.text_frame.paragraphs[0]
+        if p.runs:
+            p.runs[0].text='Prototype interface built from the Mav Metrics workflow; benchmark values shown for demonstration.'
+        else:
+            p.text='Prototype interface built from the Mav Metrics workflow; benchmark values shown for demonstration.'
+
 # Correct slide numbering in all footers.
 for idx,slide in enumerate(prs.slides,1):
     for shape in slide.shapes:
