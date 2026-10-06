@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mav Metrics</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow">Player Marketability Explorer</p>
+      <h1>Mav Metrics</h1>
+      <p class="lede">A simple public-data tool for comparing player performance, brand value, momentum, and marketability gap.</p>
+    </section>
+
+    <section class="controls">
+      <label>
+        Search player
+        <input id="search" placeholder="Type a name or team" />
+      </label>
+      <label>
+        Sort by
+        <select id="sort">
+          <option value="marketability_score">Marketability</option>
+          <option value="performance_score">Performance</option>
+          <option value="momentum_score">Momentum</option>
+          <option value="marketability_gap">Marketability Gap</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="grid">
+      <div class="chart-card">
+        <h2>Performance vs. Marketability</h2>
+        <svg id="scatter" viewBox="0 0 700 420" role="img" aria-label="Scatterplot"></svg>
+      </div>
+      <aside class="player-card" id="detail">
+        <h2>Select a player</h2>
+        <p>Click a point or row to see the player card.</p>
+      </aside>
+    </section>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Perf.</th>
+            <th>Market.</th>
+            <th>Momentum</th>
+            <th>Gap</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
