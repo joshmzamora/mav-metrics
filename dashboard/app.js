@@ -12,12 +12,16 @@ function parseCsv(text) {
 }
 
 function num(value) { return Number(value || 0); }
+function gapLabel(value) {
+  const v = num(value);
+  return v < 0 ? "Underexposed vs. performance" : "Brand demand ahead of performance";
+}
 
 async function loadData() {
   const res = await fetch(DATA_PATH);
   const text = await res.text();
   players = parseCsv(text);
-  selected = players[0];
+  selected = [...players].sort((a,b) => num(b.marketability_score)-num(a.marketability_score))[0];
   render();
 }
 
@@ -32,37 +36,48 @@ function getFiltered() {
 function renderScatter(data) {
   const svg = document.querySelector("#scatter");
   svg.innerHTML = "";
-  const width = 700, height = 420, pad = 44;
+  const width = 700, height = 420, pad = 48;
   const x = v => pad + (num(v) / 100) * (width - pad * 2);
   const y = v => height - pad - (num(v) / 100) * (height - pad * 2);
 
+  [0,25,50,75,100].forEach(t => {
+    svg.insertAdjacentHTML("beforeend", `<line class="gridline" x1="${pad}" y1="${y(t)}" x2="${width-pad}" y2="${y(t)}" opacity=".22"/>`);
+  });
   svg.insertAdjacentHTML("beforeend", `<line class="axis" x1="${pad}" y1="${height-pad}" x2="${width-pad}" y2="${height-pad}"/>`);
   svg.insertAdjacentHTML("beforeend", `<line class="axis" x1="${pad}" y1="${pad}" x2="${pad}" y2="${height-pad}"/>`);
-  [0, 25, 50, 75, 100].forEach(t => {
+  [0,25,50,75,100].forEach(t => {
     svg.insertAdjacentHTML("beforeend", `<text class="tick" x="${x(t)-8}" y="${height-pad+24}">${t}</text>`);
-    svg.insertAdjacentHTML("beforeend", `<text class="tick" x="12" y="${y(t)+4}">${t}</text>`);
+    svg.insertAdjacentHTML("beforeend", `<text class="tick" x="13" y="${y(t)+4}">${t}</text>`);
   });
+  svg.insertAdjacentHTML("beforeend", `<text class="tick" x="${width/2-46}" y="${height-8}">Performance</text>`);
+  svg.insertAdjacentHTML("beforeend", `<text class="tick" transform="translate(12 ${height/2+42}) rotate(-90)">Marketability</text>`);
 
   data.forEach(p => {
     const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     circle.setAttribute("class", "point");
     circle.setAttribute("cx", x(p.performance_score));
     circle.setAttribute("cy", y(p.marketability_score));
-    circle.setAttribute("r", 8 + Math.max(0, num(p.momentum_score)) / 18);
+    circle.setAttribute("r", 7 + Math.max(0, num(p.momentum_score)) / 22);
     circle.addEventListener("click", () => { selected = p; render(); });
+    const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+    title.textContent = `${p.player}: marketability ${p.marketability_score}, performance ${p.performance_score}`;
+    circle.appendChild(title);
     svg.appendChild(circle);
   });
 }
 
 function renderRows(data) {
   const body = document.querySelector("#rows");
-  body.innerHTML = data.map(p => `
+  body.innerHTML = data.map(p => {
+    const gapClass = num(p.marketability_gap) < 0 ? "gap-under" : "gap-over";
+    return `
     <tr data-player="${p.player}">
-      <td>${p.player}</td><td>${p.team}</td>
+      <td><strong>${p.player}</strong></td><td>${p.team}</td>
       <td>${p.performance_score}</td><td>${p.marketability_score}</td>
-      <td>${p.momentum_score}</td><td>${p.marketability_gap}</td>
+      <td>${p.momentum_score}</td><td class="${gapClass}">${p.marketability_gap}</td>
       <td class="action">${p.recommended_action}</td>
-    </tr>`).join("");
+    </tr>`;
+  }).join("");
   body.querySelectorAll("tr").forEach(row => {
     row.addEventListener("click", () => {
       selected = players.find(p => p.player === row.dataset.player);
@@ -75,15 +90,18 @@ function renderDetail() {
   const p = selected || players[0];
   const card = document.querySelector("#detail");
   if (!p) return;
+  const gapClass = num(p.marketability_gap) < 0 ? "gap-under" : "gap-over";
   card.innerHTML = `
+    <p class="eyebrow">Player card</p>
     <h2>${p.player}</h2>
-    <p>${p.team} · ${p.position} · age ${p.age}</p>
+    <p class="muted">${p.team} · ${p.position} · age ${p.age}</p>
     <div class="metric"><span>Marketability</span><strong>${p.marketability_score}</strong></div>
     <div class="metric"><span>Performance</span><strong>${p.performance_score}</strong></div>
     <div class="metric"><span>Momentum</span><strong>${p.momentum_score}</strong></div>
-    <div class="metric"><span>Gap</span><strong>${p.marketability_gap}</strong></div>
+    <div class="metric"><span>Gap</span><strong class="${gapClass}">${p.marketability_gap}</strong></div>
+    <p class="${gapClass}"><strong>${gapLabel(p.marketability_gap)}</strong></p>
     <p><strong>Strength:</strong> ${p.primary_strength}</p>
-    <p><strong>Weakness:</strong> ${p.primary_weakness}</p>
+    <p><strong>Constraint:</strong> ${p.primary_weakness}</p>
     <p class="action"><strong>Action:</strong> ${p.recommended_action}</p>
   `;
 }
